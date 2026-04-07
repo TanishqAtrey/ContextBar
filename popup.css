@@ -1,0 +1,189 @@
+/* ─── CONTEXTBAR POPUP ─────────────────────────── */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #0c0d10;
+  --bg2:      #13151a;
+  --bg3:      #1a1d24;
+  --border:   #252830;
+  --border2:  #2e323d;
+  --green:    #00e87a;
+  --amber:    #ffb800;
+  --text:     #c8cdd8;
+  --text-dim: #626878;
+  --text-hi:  #e8ecf4;
+  --mono:     'Courier New', 'Lucida Console', monospace;
+}
+
+html, body {
+  width: 280px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+#popup-root {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px;
+}
+
+/* ─── HEADER ──── */
+
+#popup-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+#popup-logo {
+  color: var(--green);
+  font-size: 22px;
+  text-shadow: 0 0 10px var(--green);
+  animation: ppulse 3s ease-in-out infinite;
+}
+
+@keyframes ppulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+#popup-title-block { flex: 1; }
+#popup-name {
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--text-hi);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+#popup-tagline {
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+#popup-version {
+  font-size: 9px;
+  color: var(--text-dim);
+  border: 1px solid var(--border2);
+  border-radius: 3px;
+  padding: 2px 5px;
+  align-self: flex-start;
+}
+
+/* ─── STATUS ──── */
+
+#popup-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 7px 10px;
+}
+
+#popup-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-dim);
+  flex-shrink: 0;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+#popup-status-dot.active {
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green);
+}
+
+#popup-status-text {
+  font-size: 10px;
+  color: var(--text-dim);
+  transition: color 0.3s;
+}
+
+#popup-status-text.active {
+  color: var(--text);
+}
+
+/* ─── SECTIONS ──── */
+
+.popup-section {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.popup-section-label {
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.popup-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 9px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.popup-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 10px;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.popup-row strong { color: var(--text-hi); }
+
+.popup-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* ─── PLATFORMS ──── */
+
+.popup-platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.popup-platform {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 3px;
+  padding: 3px 8px;
+  font-size: 9px;
+  color: var(--green);
+  letter-spacing: 0.04em;
+}
+
+/* ─── NOTE ──── */
+
+#popup-note {
+  font-size: 9px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  padding: 8px 10px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  border-left: 2px solid var(--border2);
+}

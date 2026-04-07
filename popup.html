@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ContextBar</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div id="popup-root">
+
+    <!-- HEADER -->
+    <div id="popup-header">
+      <span id="popup-logo">▓</span>
+      <div id="popup-title-block">
+        <div id="popup-name">ContextBar</div>
+        <div id="popup-tagline">LLM Memory Health Monitor</div>
+      </div>
+      <span id="popup-version">v1.0</span>
+    </div>
+
+    <!-- STATUS BADGE -->
+    <div id="popup-status">
+      <div id="popup-status-dot"></div>
+      <span id="popup-status-text">Detecting platform…</span>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="popup-section">
+      <div class="popup-section-label">HOW IT WORKS</div>
+      <div class="popup-card">
+        <div class="popup-row">
+          <span class="popup-dot" style="background:#00e87a"></span>
+          <span><strong>Green</strong> — message is inside the active context window</span>
+        </div>
+        <div class="popup-row">
+          <span class="popup-dot" style="background:#ffb800"></span>
+          <span><strong>Amber</strong> — message is at risk of being truncated</span>
+        </div>
+        <div class="popup-row">
+          <span class="popup-dot" style="background:#3d424f"></span>
+          <span><strong>Grey + faded</strong> — model has likely forgotten this message</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPPORTED PLATFORMS -->
+    <div class="popup-section">
+      <div class="popup-section-label">SUPPORTED PLATFORMS</div>
+      <div class="popup-platforms">
+        <span class="popup-platform">ChatGPT</span>
+        <span class="popup-platform">Claude</span>
+        <span class="popup-platform">Gemini</span>
+        <span class="popup-platform">Perplexity</span>
+        <span class="popup-platform">Mistral</span>
+        <span class="popup-platform">Poe</span>
+      </div>
+    </div>
+
+    <!-- NOTES -->
+    <div id="popup-note">
+      Token counts are estimated (~4 chars/token). 
+      Actual context usage may differ by model.
+      Drag the panel to reposition it.
+    </div>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
