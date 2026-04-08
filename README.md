@@ -20,6 +20,11 @@ ContextBar makes this visible in real time:
 
 ---
 
+##  Working & Demo
+
+### Real-time context analysis and hallucination detection
+![Working](assets/working.gif)
+
 ## Supported platforms
 
 - **ChatGPT** (chat.openai.com / chatgpt.com)
