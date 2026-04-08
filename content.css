@@ -16,10 +16,10 @@
   --cb-amber: #ffb800;
   --cb-amber-dim: rgba(255, 184, 0, 0.08);
   --cb-red: #ff4466;
-  --cb-grey: #3d424f;
-  --cb-grey-text: #5a6070;
+  --cb-grey: #ffffff;
+  --cb-grey-text: #ffffff;
   --cb-text: #ffffff;
-  --cb-text-dim: #9aa3b8;
+  --cb-text-dim: #ffffff;
   --cb-text-bright: #ffffff;
   --cb-mono: 'Courier New', 'Lucida Console', monospace;
   --cb-w: 276px;
