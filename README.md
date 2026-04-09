@@ -1,7 +1,8 @@
 # ContextBar
 
-**Live memory health bar for LLM chats.**  
-See exactly which messages the model still remembers — and which have gone dark.
+**Live memory health bar for LLM chats with hallucinating text detection.**  
+See exactly which messages the model still remembers — and which have gone dark - while highlighting potential hallucinated text for improved accuracy and trust.
+
 
 ---
 
