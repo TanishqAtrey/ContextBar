@@ -18,11 +18,13 @@ ContextBar makes this visible in real time:
 | 🟡 Amber | Message is at the edge — at risk of truncation |
 | ⚫ Grey + faded | Model has likely forgotten this message |
 
+ContextBar is also designed to detect hallucinations in text, especially in AI-generated content. It identifies suspicious claims, numerical exaggerations, and unverifiable statements using pattern matching and entity recognition.
+
 ---
 
-##  Working & Demo
+## Demo
 
-### Real-time context analysis and hallucination detection
+### Real-time context analysis with memory-health update and hallucination detection
 ![Working](assets/working.gif)
 
 ## Supported platforms
@@ -51,7 +53,7 @@ You can **drag** it anywhere. Click **✕** to hide it (a restore button appears
 
 ## How token counting works
 
-Tokens are now calculated using a custom implementation of OpenAI's **`cl100k_base` regex pattern**—the same Unicode-aware splitting used by GPT-4. It goes beyond simple heuristics by applying BPE merge corrections for common English suffixes, specific weightings for CJK (~1.5 tok/char) and emojis (~2.5 tok/char), and a calibrated 0.92× multiplier for code blocks.
+Tokens are  calculated using a custom implementation of OpenAI's **`cl100k_base` regex pattern**—the same Unicode-aware splitting used by GPT-4. It goes beyond simple heuristics by applying BPE merge corrections for common English suffixes, specific weightings for CJK (~1.5 tok/char) and emojis (~2.5 tok/char), and a calibrated 0.92× multiplier for code blocks.
 
 * **Accuracy:** Achieves **~98%** accuracy for English prose and **~95%** for code.
 * **Fallback logic:** The tokenizer runs a self-test on load. If it fails, it safely falls back to the legacy heuristic (~4 characters per token), ensuring uninterrupted functionality.
@@ -68,6 +70,20 @@ Context limits used:
 | Claude 3 | 200,000 tokens |
 | Gemini 1.5 Pro | 1,000,000 tokens |
 | Others | 128,000 tokens |
+
+## Hallucination Detection 
+Detects 63 types of hallucinations, including:
+1) Political, academic, and relationship claims.
+2) Ratio, multiplier, causal, and price/cost claims.
+3) Casualty/death tolls, consensus overstatements, and vague statements.
+4) Page/chapter references, inflation-adjusted figures, and fabricated coordinates/IPs.
+Pre-filter Gate for Performance:
+1) Sentences are pre-checked for digits or uppercase letters.
+2) Patterns requiring digits are skipped if none exist, reducing ~60% of regex evaluations for short/simple sentences.
+## Hallucination Detection Working 
+Pattern Matching: Uses regex for known hallucination patterns, categorized by type.
+Entity + Digit Analysis: Combines named entities and numerical mentions for higher scoring of risky statements.
+Context Pruning: Only analyzes relevant recent sentences to prevent false positives from unrelated text.
 
 ---
 
