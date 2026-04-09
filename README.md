@@ -19,7 +19,13 @@ ContextBar makes this visible in real time:
 | 🟡 Amber | Message is at the edge — at risk of truncation |
 | ⚫ Grey + faded | Model has likely forgotten this message |
 
-ContextBar is also designed to detect hallucinations in text, especially in AI-generated content. It identifies suspicious claims, numerical exaggerations, and unverifiable statements using pattern matching and entity recognition.
+ContextBar is also designed to detect hallucinations in text, especially in AI-generated content. It identifies suspicious claims, numerical exaggerations, and unverifiable statements using pattern matching and entity recognition, and marks them as medium to high.
+
+| Colour | Meaning |
+|--------|---------|
+| 🔵 Sky-Blue | Medium chance the text contains hallucinations |
+| 🟡 Yellow |High chance the text contains hallucinations |
+
 
 ---
 
